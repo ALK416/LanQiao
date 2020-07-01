@@ -1145,3 +1145,70 @@ atan(1.0)*4
 > 例题：蓝桥杯-特殊回文
 
 <hr/>
+
+##### 33.bitset：二进制数组
+
+bitset是一种类似于数组的数据结构，它的每一个元素只能是0或1，因而可以用于二进制数字的处理。
+
+构造方法：
+
+```c++
+#include<bitset>
+...
+    
+bitset<4> bitset1;　　//无参构造，长度为４，默认每一位为０
+
+bitset<8> bitset2(12);　　//长度为８，二进制保存，前面用０补充
+
+/*还可以用string和字符数组来构造bitset*/
+string s = "100101";
+bitset<10> bitset3(s);　　//长度为10，前面用０补充
+
+char s2[] = "10101";
+bitset<13> bitset4(s2);　　//长度为13，前面用０补充
+```
+
+使用字符串和字符数组来构造bitset时，要注意只能包含0和1，否则会错误
+
+
+
+可以通过等号来对bitset进行赋值，例如：
+
+```c++
+bitset<5> temp(0);
+temp = 8;
+```
+
+
+
+通过cout语句即可将bitset的各个位输出：
+
+```c++
+bitset<5> binaryConverter(31);
+count<<binaryConverter<<endl;
+```
+
+
+
+例子：蓝桥杯01字符串
+
+(输出从00000~11111这32个五位的字符串)
+
+```c++
+#include<iostream>
+#include<bitset>
+using namespace std;
+int main(void){
+	bitset<5> binaryConverter(0);	//声明5位的bitset
+	for(int count=0;count<=31;count++){
+		binaryConverter = count;
+		cout<<binaryConverter<<endl;
+	}
+	return(0);
+}
+```
+
+
+
+<hr/>
+
